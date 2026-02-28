@@ -76,4 +76,28 @@
 
 .body {
   padding: 28px 32px 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Mobile ── */
+@media (max-width: 600px) {
+  .window {
+    width: 95vw !important;
+    min-width: unset;
+    max-width: unset;
+    /* override any fixed position from dragging */
+    position: fixed !important;
+    left: 2.5vw !important;
+    top: 10vh !important;
+    margin: 0 !important;
+  }
+
+  .chrome {
+    cursor: default;
+  }
+
+  .body {
+    padding: 20px;
+  }
 }

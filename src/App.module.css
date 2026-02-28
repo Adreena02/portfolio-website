@@ -157,3 +157,46 @@
   letter-spacing: 0.01em;
   transition: color 0.3s ease;
 }
+
+/* ── Mobile ── */
+@media (max-width: 600px) {
+  .homeWindow {
+    width: 95vw;
+  }
+
+  .body {
+    padding: 32px 24px 36px;
+  }
+
+  .heading {
+    font-size: 28px;
+  }
+
+  .sub {
+    font-size: 13px;
+    margin-bottom: 32px;
+  }
+
+  .nav {
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .circle {
+    width: 60px;
+    height: 60px;
+  }
+
+  .navLabel {
+    font-size: 12px;
+  }
+
+  .wavesContainer {
+    bottom: 30%;
+  }
+
+  .bottomBg {
+    height: 32%;
+  }
+}
