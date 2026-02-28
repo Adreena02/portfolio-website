@@ -1,0 +1,1 @@
+A personal website made with React and Vite! It's inspired by early 2000s / early MySpace / tumblr themes. I hope you enjoy!
