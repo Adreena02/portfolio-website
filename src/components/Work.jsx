@@ -29,24 +29,26 @@ const projects = [
   },
 ]
 
-export default function Work({ onClose }) {
+export default function Work({ onClose, onFocus, zIndex }) {
   return (
-    <Window title="work" onClose={onClose} style={{ maxWidth: 620 }}>
-      <div className={styles.grid}>
-        {projects.map((p, i) => (
-          <div key={i} className={styles.card} style={{ '--accent': p.color }}>
-            <div className={styles.cardTop} style={{ background: p.color }} />
-            <div className={styles.cardBody}>
-              <h3 className={styles.cardTitle}>{p.title}</h3>
-              <p className={styles.cardDesc}>{p.description}</p>
-              <div className={styles.tags}>
-                {p.tags.map(t => (
-                  <span key={t} className={styles.tag}>{t}</span>
-                ))}
+    <Window title="work" onClose={onClose} onFocus={onFocus} zIndex={zIndex} style={{ maxWidth: 620 }}>
+      <div className={styles.scrollBody}>
+        <div className={styles.grid}>
+          {projects.map((p, i) => (
+            <div key={i} className={styles.card} style={{ '--accent': p.color }}>
+              <div className={styles.cardTop} style={{ background: p.color }} />
+              <div className={styles.cardBody}>
+                <h3 className={styles.cardTitle}>{p.title}</h3>
+                <p className={styles.cardDesc}>{p.description}</p>
+                <div className={styles.tags}>
+                  {p.tags.map(t => (
+                    <span key={t} className={styles.tag}>{t}</span>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </Window>
   )
