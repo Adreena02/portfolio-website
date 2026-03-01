@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Wave from 'react-wavify'
 import About from './components/About.jsx'
 import Links from './components/Links.jsx'
@@ -20,6 +20,22 @@ export default function App() {
   const [openWindows, setOpenWindows] = useState(new Set())
   const [zStack, setZStack] = useState([]) // ordered list, last = top
   const [dark, setDark] = useState(false)
+  const [playing, setPlaying] = useState(false)
+  const audioRef = useRef(null)
+
+  useEffect(() => {
+    const audio = new Audio('/song.mp3')
+    audio.loop = true
+    audioRef.current = audio
+    return () => { audio.pause(); audio.src = '' }
+  }, [])
+
+  useEffect(() => {
+    if (!audioRef.current) return
+    playing
+      ? audioRef.current.play().catch(() => setPlaying(false))
+      : audioRef.current.pause()
+  }, [playing])
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light')
@@ -67,7 +83,7 @@ export default function App() {
             <button
               className={styles.themeToggle}
               onClick={() => setDark(d => !d)}
-              title={dark ? 'Switch to light mode' : 'Switch to dark mode'}
+              title={dark ? 'switch to light mode' : 'switch to dark mode'}
             >
               {dark ? '☀️' : '🌙'}
             </button>
@@ -98,18 +114,17 @@ export default function App() {
 
         {/* Floating Now Playing Toggle */}   
          <button
-            className={`${styles.nowPlayingBtn} ${openWindows.has('nowplaying') ? styles.nowPlayingActive : ''}`}
-            onClick={() => openWindows.has('nowplaying') ? closeWindow('nowplaying') : openWindow('nowplaying')}
-            title="now playing" 
+            className={`${styles.nowPlayingBtn} ${playing ? styles.nowPlayingActive : ''}`}
+            onClick={() => setPlaying(p => !p)}
+            title={playing ? 'pause' : 'play'} 
           >
-            🎵
+            {playing ? '⏸' : '🎵'}
           </button>
 
         {openWindows.has('about')      && <About      onClose={() => closeWindow('about')}      onFocus={() => focusWindow('about')}      zIndex={zIndex('about')} />}
         {openWindows.has('links')      && <Links      onClose={() => closeWindow('links')}      onFocus={() => focusWindow('links')}      zIndex={zIndex('links')} />}
         {openWindows.has('work')       && <Work       onClose={() => closeWindow('work')}       onFocus={() => focusWindow('work')}       zIndex={zIndex('work')} />}
         {openWindows.has('contact')    && <Contact    onClose={() => closeWindow('contact')}    onFocus={() => focusWindow('contact')}    zIndex={zIndex('contact')} />}
-        {openWindows.has('nowplaying') && <NowPlaying onClose={() => closeWindow('nowplaying')} onFocus={() => focusWindow('nowplaying')} zIndex={zIndex('nowplaying')} />}
       </div>
     </>
   )
