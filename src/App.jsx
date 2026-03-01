@@ -13,7 +13,6 @@ const NAV_ITEMS = [
   { id: 'links',      label: 'links',       cssVar: '--circle-links'   },
   { id: 'work',       label: 'work',        cssVar: '--circle-work'    },
   { id: 'contact',    label: 'contact',     cssVar: '--circle-contact' },
-  { id: 'nowplaying', label: 'now playing', cssVar: '--circle-music'   },
 ]
 
 export default function App() {
@@ -96,6 +95,15 @@ export default function App() {
             </nav>
           </div>
         </div>
+
+        {/* Floating Now Playing Toggle */}   
+         <button
+            className={`${styles.nowPlayingBtn} ${openWindows.has('nowplaying') ? styles.nowPlayingActive : ''}`}
+            onClick={() => openWindows.has('nowplaying') ? closeWindow('nowplaying') : openWindow('nowplaying')}
+            title="now playing" 
+          >
+            🎵
+          </button>
 
         {openWindows.has('about')      && <About      onClose={() => closeWindow('about')}      onFocus={() => focusWindow('about')}      zIndex={zIndex('about')} />}
         {openWindows.has('links')      && <Links      onClose={() => closeWindow('links')}      onFocus={() => focusWindow('links')}      zIndex={zIndex('links')} />}

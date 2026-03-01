@@ -16,11 +16,11 @@ export default function NowPlaying({ onClose }) {
 
     useEffect(() => {
     const audio = new Audio(SONG.src)
+    audio.loop = true
     audioRef.current = audio
 
     audio.addEventListener('loadedmetadata', () => setDuration(audio.duration))
     audio.addEventListener('timeupdate', () => setProgress(audio.currentTime))
-    audio.addEventListener('ended', () => setPlaying(false))
 
     return () => {
       audio.pause()
