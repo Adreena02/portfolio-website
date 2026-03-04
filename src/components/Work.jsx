@@ -4,6 +4,12 @@ import styles from './Work.module.css'
 
 const projects = [
   {
+    title: 'Hello Kitty Island Adventure Game Companion',
+    description: 'A fan-made companion app for Hello Kitty Island Adventure. Track friendship levels, manage inventory, log recipes, and catalogue furniture — with all 13 residents pre-loaded and a gifting helper to match your items to resident preferences.',
+    tags: ['React', 'Vite', 'HTML', 'CSS'],
+    color: '#ff6b6b',
+  },
+  {
     title: 'Desktop App',
     description: 'A cute desktop application built with Electron and React. Focused on clean UI and smooth interactions.',
     tags: ['Electron', 'React', 'CSS'],
@@ -20,12 +26,6 @@ const projects = [
     description: 'CI/CD pipeline setup using GitHub Actions, Docker, and AWS. Streamlined deployments for a team project.',
     tags: ['GitHub Actions', 'Docker', 'AWS'],
     color: '#f9e4a1',
-  },
-  {
-    title: 'Desktop Calendar',
-    description: 'A cute desktop calendar! This is made with Electron and React. Inspired by pixel animations.',
-    tags: ['Electron','React', 'CSS'],
-    color: '#fb93bb',
   },
 ]
 
