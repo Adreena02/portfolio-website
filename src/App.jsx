@@ -9,10 +9,10 @@ import LoadingScreen from './components/LoadingScreen.jsx'
 import styles from './App.module.css'
 
 const NAV_ITEMS = [
-  { id: 'about',      label: 'about',       cssVar: '--circle-about'   },
-  { id: 'links',      label: 'links',       cssVar: '--circle-links'   },
-  { id: 'work',       label: 'work',        cssVar: '--circle-work'    },
-  { id: 'contact',    label: 'contact',     cssVar: '--circle-contact' },
+  { id: 'about',   label: 'about',   cssVar: '--circle-about',   tooltip: 'who i am & what i do'  },
+  { id: 'links',   label: 'links',   cssVar: '--circle-links',   tooltip: 'github & linkedin'      },
+  { id: 'work',    label: 'work',    cssVar: '--circle-work',    tooltip: "projects i've shipped"  },
+  { id: 'contact', label: 'contact', cssVar: '--circle-contact', tooltip: "let's work together"    },
 ]
 
 export default function App() {
@@ -92,7 +92,9 @@ export default function App() {
             <h1 className={styles.heading}>
               hey! i'm <span className={styles.pink}>adreena</span>
             </h1>
-            <p className={styles.sub}>full stack + dev ops engineer</p>
+            <p className={styles.sub}>Frontend Engineer & Creative Developer</p>
+
+            <p className={styles.hint}>click to explore ↓</p>
 
             <nav className={styles.nav}>
               {NAV_ITEMS.map(item => (
@@ -101,6 +103,7 @@ export default function App() {
                   className={`${styles.navItem} ${openWindows.has(item.id) ? styles.active : ''}`}
                   onClick={() => openWindow(item.id)}
                 >
+                  <span className={styles.tooltip}>{item.tooltip}</span>
                   <div
                     className={styles.circle}
                     style={{ background: 'var(' + item.cssVar + ')' }}
@@ -109,6 +112,10 @@ export default function App() {
                 </button>
               ))}
             </nav>
+
+            <a href="/resume.pdf" download className={styles.resumeBtn}>
+              Download Resume (PDF)
+            </a>
           </div>
         </div>
 

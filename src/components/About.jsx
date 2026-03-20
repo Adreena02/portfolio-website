@@ -30,7 +30,7 @@ export default function About({ onClose }) {
         </div>
         <div className={styles.headerText}>
           <h1 className={styles.name}>Adreena Fulcher</h1>
-          <p className={styles.tagline}>NYC based full stack + devops engineer</p>
+          <p className={styles.tagline}>NYC based frontend engineer + creative developer</p>
           <p className={styles.tagline}>
             Former software engineer at{' '}
             <a className={styles.link} href="https://www.jpmorganchase.com" target="_blank" rel="noopener noreferrer">
@@ -45,20 +45,7 @@ export default function About({ onClose }) {
       {/* Scrollable content below */}
       <div className={styles.scrollBody}>
         <div className={styles.bio}>
-          <p>hi! nice to meet you, i'm adreena. i...</p>
-          <ul>
-            <li>
-              develop cute{' '}
-              <a className={styles.link} href="#" onClick={e => e.preventDefault()}>
-                desktop applications
-              </a>
-              ,
-            </li>
-            <li>create website wire frames,</li>
-            <li>build resilience and stability of product tools to accelerate the adoption of native cloud tech and enhance the customer experience,</li>
-            <li>utilize low code apps to create streamlined processes to lessen workload and,</li>
-            <li>do front-end web development!</li>
-          </ul>
+          <p>hi! i'm adreena — a frontend engineer & creative developer based in NYC. i build things that are functional, accessible, and a little bit cute. formerly at JP Morgan Chase, currently making the web more delightful one component at a time. i have a thing for the details that most people shrug at — if something feels slightly off, i will absolutely notice and fix it at 2am.</p>
           <p className={styles.contact}>
             interested in working with me? send me an email at{' '}
             <a className={styles.link} href="mailto:fulcheradreena@gmail.com">
